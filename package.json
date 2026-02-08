@@ -12,9 +12,26 @@
     "type": "git",
     "url": "git+https://github.com/zxiaosi-team/fontend-create-sdk.git"
   },
+  "bin": {
+    "create-sdk": "./dist/index.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.cjs",
+    "./package.json": "./package.json"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "main": "index.js"
+  "scripts": {
+    "dev": "tsdown --watch",
+    "build": "tsdown --minify"
+  },
+  "devDependencies": {
+    "tsdown": "^0.20.3"
+  },
+  "main": "./dist/index.cjs"
 }
