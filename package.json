@@ -1,0 +1,20 @@
+{
+  "name": "@zxiaosi/create-sdk",
+  "version": "0.0.1",
+  "description": "A tool for generating SDK projects",
+  "keywords": [
+    "micro frontend",
+    "qiankun"
+  ],
+  "license": "MIT",
+  "author": "zxiaosi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxiaosi-team/fontend-create-sdk.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "main": "index.js"
+}
