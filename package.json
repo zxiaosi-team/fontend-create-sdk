@@ -32,6 +32,8 @@
     "build": "tsdown --minify"
   },
   "devDependencies": {
+    "@clack/prompts": "^1.1.0",
+    "picocolors": "^1.1.1",
     "tsdown": "^0.21.0"
   }
 }
