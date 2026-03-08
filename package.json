@@ -13,14 +13,14 @@
     "url": "git+https://github.com/zxiaosi-team/fontend-create-sdk.git"
   },
   "bin": {
-    "create-sdk": "./dist/index.cjs"
+    "create-sdk": "./dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "templates"
   ],
-  "main": "./dist/index.cjs",
   "exports": {
-    ".": "./dist/index.cjs",
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -29,11 +29,14 @@
   },
   "scripts": {
     "dev": "tsdown --watch",
-    "build": "tsdown --minify"
+    "build": "tsdown"
   },
   "devDependencies": {
     "@clack/prompts": "^1.1.0",
     "picocolors": "^1.1.1",
     "tsdown": "^0.21.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

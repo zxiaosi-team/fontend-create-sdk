@@ -1,3 +1,3 @@
-#!/usr/bin/env node
+#! /usr/bin/env node
 
-console.log("hello tsdown cli");
+import './cli.js';
