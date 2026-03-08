@@ -13,7 +13,7 @@
     "url": "git+https://github.com/zxiaosi-team/fontend-create-sdk.git"
   },
   "bin": {
-    "create-sdk": "./index.js"
+    "create-sdk": "index.js"
   },
   "files": [
     "index.js",
