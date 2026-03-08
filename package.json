@@ -13,16 +13,14 @@
     "url": "git+https://github.com/zxiaosi-team/fontend-create-sdk.git"
   },
   "bin": {
-    "create-sdk": "./dist/index.js"
+    "create-sdk": "./index.js"
   },
   "files": [
+    "index.js",
     "dist",
     "templates"
   ],
-  "exports": {
-    ".": "./dist/index.js",
-    "./package.json": "./package.json"
-  },
+  "type": "module",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
