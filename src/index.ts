@@ -19,8 +19,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const templateOptions = [
   { value: 'main-react', label: 'MainApp（React）' },
   { value: 'sub-react', label: 'SubApp (React)' },
-  { value: 'sub-react-postcss', label: 'SubApp (React + PostCSS)' },
-  { value: 'sub-react-tailwindcss', label: 'SubApp (React + TailwindCSS)' },
+  {
+    value: 'sub-react-postcss',
+    label: 'SubApp (React + PostCSS)',
+    hint: 'Qinkun style Isolation',
+  },
   { value: 'sub-vue', label: 'SubApp (Vue)' },
 ] as const;
 
@@ -50,6 +53,8 @@ export async function create(
 
   await downloadTemplate(resolved.template, resolved.path);
 
+  await writePackageJson(resolved.path);
+
   s.stop('Template cloned');
 
   outro(pc.green(`Successfully copied ${resolved.template}！🎉`));
@@ -66,11 +71,19 @@ export async function resolveOptions(
   let path: Options['path'] | symbol = options.path;
 
   if (!path) {
-    const defaultPath = './my-package';
+    const defaultPath = 'my-package';
     path =
       (await text({
         message: 'What is the name of your package?',
         placeholder: defaultPath,
+        validate: (value) => {
+          const reg = /^[a-z0-9-_]+$/;
+          if (!reg.test(value || defaultPath)) {
+            return 'Package name must contain only lowercase letters, numbers, - or _';
+          }
+
+          return '';
+        },
       })) || defaultPath;
     if (isCancel(path)) {
       cancel('Operation cancelled.');
@@ -122,4 +135,18 @@ export async function downloadTemplate(
   }
 
   fs.cpSync(sourcePath, targetPath, { recursive: true });
+}
+
+/**
+ * Write the package.json file
+ * @param targetDir The target directory
+ */
+export async function writePackageJson(targetDir: string): Promise<void> {
+  const targetPath = path.join(process.cwd(), targetDir);
+
+  const pkgPath = path.join(targetPath, 'package.json');
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+  pkg.name = targetDir;
+  const newPkg = JSON.stringify(pkg, null, 2);
+  fs.writeFileSync(pkgPath, newPkg);
 }
