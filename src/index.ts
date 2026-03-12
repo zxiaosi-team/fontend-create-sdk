@@ -14,7 +14,11 @@ import {
 } from '@clack/prompts';
 import pc from 'picocolors';
 
+const cwd = process.cwd();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const root = path.dirname(__dirname);
+
+export const defaultName = 'my-package';
 
 export const templateOptions = [
   { value: 'main-react', label: 'MainApp（React）' },
@@ -31,7 +35,7 @@ type TemplateOption = (typeof templateOptions)[number]['value'];
 
 export interface Options {
   template?: TemplateOption;
-  path?: string;
+  name?: string;
 }
 
 export type ResolvedOptions = Required<Options>;
@@ -40,20 +44,20 @@ export type ResolvedOptions = Required<Options>;
  * Create a project.
  */
 export async function create(
-  path: string | undefined,
+  name: string | undefined,
   options: Options,
 ): Promise<void> {
   console.log();
   intro(`Create a micro frontend project...`);
 
-  const resolved = await resolveOptions({ ...options, path });
+  const resolved = await resolveOptions({ ...options, name });
 
   const s = spinner();
   s.start('Downloading the template...');
 
-  await downloadTemplate(resolved.template, resolved.path);
+  await downloadTemplate(resolved.template, resolved.name);
 
-  await writePackageJson(resolved.path);
+  await writePackageJson(resolved.name);
 
   s.stop('Template cloned');
 
@@ -68,24 +72,24 @@ export async function create(
 export async function resolveOptions(
   options: Options,
 ): Promise<ResolvedOptions> {
-  let path: Options['path'] | symbol = options.path;
+  let name: Options['name'] | symbol = options.name;
 
-  if (!path) {
-    const defaultPath = 'my-package';
-    path =
+  if (!name) {
+    name =
       (await text({
         message: 'What is the name of your package?',
-        placeholder: defaultPath,
-        validate: (value) => {
-          const reg = /^[a-z0-9-_]+$/;
-          if (!reg.test(value || defaultPath)) {
-            return 'Package name must contain only lowercase letters, numbers, - or _';
-          }
+        placeholder: defaultName,
+        validate(value) {
+          const realName = value || defaultName;
 
-          return '';
+          if (!/^[a-z0-9-_]+$/.test(realName)) {
+            return 'Package name must contain lowercase letters, numbers, - or _';
+          } else {
+            return '';
+          }
         },
-      })) || defaultPath;
-    if (isCancel(path)) {
+      })) || defaultName;
+    if (isCancel(name)) {
       cancel('Operation cancelled.');
       process.exit(1);
     }
@@ -112,23 +116,20 @@ export async function resolveOptions(
     }
   }
 
-  return {
-    path,
-    template,
-  } satisfies ResolvedOptions;
+  return { name, template } as ResolvedOptions;
 }
 
 /**
  * Download the template from the template directory
- * @param sourceDir The template file name
+ * @param template The template file name
  * @param targetDir The target directory
  */
 export async function downloadTemplate(
-  sourceDir: string,
+  template: string,
   targetDir: string,
 ): Promise<void> {
-  const sourcePath = path.join(path.dirname(__dirname), 'templates', sourceDir);
-  const targetPath = path.join(process.cwd(), targetDir);
+  const sourcePath = path.join(root, 'templates', template);
+  const targetPath = path.join(cwd, targetDir);
 
   if (fs.existsSync(targetPath)) {
     throw new Error(`The folder ${targetDir} already exists. 🤖`);
@@ -142,11 +143,11 @@ export async function downloadTemplate(
  * @param targetDir The target directory
  */
 export async function writePackageJson(targetDir: string): Promise<void> {
-  const targetPath = path.join(process.cwd(), targetDir);
+  const pkgPath = path.join(cwd, targetDir, 'package.json');
 
-  const pkgPath = path.join(targetPath, 'package.json');
   const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+
   pkg.name = targetDir;
-  const newPkg = JSON.stringify(pkg, null, 2);
-  fs.writeFileSync(pkgPath, newPkg);
+
+  fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 }

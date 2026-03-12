@@ -4,18 +4,23 @@ import { log } from '@clack/prompts';
 import { cac } from 'cac';
 
 import pkg from '../package.json';
-import { create, Options, templateOptions } from './index.ts';
+import { create, defaultName, Options, templateOptions } from './index.ts';
 
 const cli = cac(pkg.name).version(pkg.version).help();
 
 cli
-  .command('[path]', 'Create a micro frontend project')
+
+  .command('[name]', 'Create a micro frontend project')
   .option(
     '-t, --template <template>',
     `Available templates: ${templateOptions.map((option) => option.value).join(', ')}`,
   )
-  .action((path: string | undefined, options: Options) =>
-    create(path, options),
+  .example('  npx create-sdk')
+  .example(`  npx create-sdk ${defaultName}`)
+  .example(`  npx create-sdk -t ${templateOptions[0].value}`)
+  .example(`  npx create-sdk -t ${templateOptions[0].value} ${defaultName}`)
+  .action((name: string | undefined, options: Options) =>
+    create(name, options),
   );
 
 async function runCli() {
