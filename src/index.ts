@@ -48,7 +48,7 @@ export async function create(
   options: Options,
 ): Promise<void> {
   console.log();
-  intro(`Create a micro frontend project...`);
+  intro(pc.green(`Create a micro frontend project...`));
 
   const resolved = await resolveOptions({ ...options, name });
 
@@ -75,20 +75,18 @@ export async function resolveOptions(
   let name: Options['name'] | symbol = options.name;
 
   if (!name) {
-    name =
-      (await text({
-        message: 'What is the name of your package?',
-        placeholder: defaultName,
-        validate(value) {
-          const realName = value || defaultName;
-
-          if (!/^[a-z0-9-_]+$/.test(realName)) {
-            return 'Package name must contain lowercase letters, numbers, - or _';
-          } else {
-            return '';
-          }
-        },
-      })) || defaultName;
+    name = await text({
+      message: 'What is the name of your package?',
+      placeholder: defaultName,
+      defaultValue: defaultName,
+      validate(value) {
+        if (value && !/^[a-z0-9-_]+$/.test(value)) {
+          return 'Invalid project name';
+        } else {
+          return '';
+        }
+      },
+    });
     if (isCancel(name)) {
       cancel('Operation cancelled.');
       process.exit(1);
