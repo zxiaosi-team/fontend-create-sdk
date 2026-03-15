@@ -1,0 +1,32 @@
+import { Space } from 'antd';
+import { memo } from 'react';
+
+import HeaderLocale from './HeaderLocale';
+import HeaderTheme from './HeaderTheme';
+import HeaderUser from './HeaderUser';
+
+import './index.css';
+
+/** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
+const CustomActions = (props: any) => {
+  if (props.isMobile)
+    return (
+      <Space>
+        <HeaderUser key='user' />
+      </Space>
+    );
+
+  if (typeof window === 'undefined') return [];
+
+  return (
+    <Space>
+      <HeaderTheme key='theme' />
+
+      <HeaderLocale key='locale' />
+
+      <HeaderUser key='user' />
+    </Space>
+  );
+};
+
+export default memo(CustomActions);

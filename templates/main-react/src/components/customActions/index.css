@@ -1,0 +1,44 @@
+.header-locale {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+[theme='dark'] .header-locale:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+[theme='light'] .header-locale:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.header-user {
+  width: 100%;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding-inline: 6px;
+  gap: 8px;
+}
+
+.header-user > svg {
+  font-size: 16px;
+}
+
+[theme='dark'] .header-user:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+[theme='light'] .header-user:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}

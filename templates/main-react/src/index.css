@@ -1,0 +1,23 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+#subapp1,
+#subapp2 {
+  width: 100%;
+  height: 100%;
+}
+
+#subapp1 > div,
+#subapp2 > div {
+  width: 100%;
+  height: 100%;
+}
