@@ -7,6 +7,7 @@ import {
   cancel,
   intro,
   isCancel,
+  log,
   outro,
   select,
   spinner,
@@ -53,15 +54,19 @@ export async function create(
   const resolved = await resolveOptions({ ...options, name });
 
   const s = spinner();
-  s.start('Downloading the template...');
+  s.start('Cloning the template...');
 
   await downloadTemplate(resolved.template, resolved.name);
 
   await writePackageJson(resolved.name);
 
-  s.stop('Template cloned');
+  s.stop(`Successfully cloned template！🎉`);
 
-  outro(pc.green(`Successfully copied ${resolved.template}！🎉`));
+  log.info(
+    `Please configure the port of the ${pc.inverse(` {SubApp} `)} in ${pc.inverse(` {MainApp}/mock/getRoutes.ts `)} ！🧐`,
+  );
+
+  outro(pc.green(`Done！🤖`));
 }
 
 /**
