@@ -62,11 +62,13 @@ export async function create(
 
   s.stop(`Successfully cloned template！🎉`);
 
-  log.info(
-    `Please configure the port of the ${pc.inverse(` {SubApp} `)} in ${pc.inverse(` {MainApp}/mock/getRoutes.ts `)} ！🧐`,
-  );
-
   outro(pc.green(`Done！🤖`));
+
+  console.log(
+    `Please configure the port in ${pc.blue(`{MainApp}/mock/getRoutes.ts`)} 🧐 \n` +
+      `Please configure permissions in ${pc.blue(`{MainApp}/mock/getUserInfo.ts`)} 🤔 \n` +
+      `For more information, visit: ${pc.underline(`https://zxiaosi.com/archives/c6c40209.html`)} 👀`,
+  );
 }
 
 /**
@@ -135,7 +137,8 @@ export async function downloadTemplate(
   const targetPath = path.join(cwd, targetDir);
 
   if (fs.existsSync(targetPath)) {
-    throw new Error(`The folder ${targetDir} already exists. 🤖`);
+    cancel(`The folder ${targetDir} already exists.`);
+    process.exit(1);
   }
 
   fs.cpSync(sourcePath, targetPath, { recursive: true });
