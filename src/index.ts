@@ -43,6 +43,8 @@ export type ResolvedOptions = Required<Options>;
 
 /**
  * Create a project.
+ * @param name The project name
+ * @param options The user options
  */
 export async function create(
   name: string | undefined,
@@ -51,14 +53,19 @@ export async function create(
   console.log();
   intro(pc.green(`Create a micro frontend project...`));
 
-  const resolved = await resolveOptions({ ...options, name });
+  const { name: packageName, template: templateName } = await resolveOptions({
+    ...options,
+    name,
+  });
 
   const s = spinner();
   s.start('Cloning the template...');
 
-  await downloadTemplate(resolved.template, resolved.name);
+  await copyTemplate(templateName, packageName);
 
-  await writePackageJson(resolved.name);
+  await writePackageJson(packageName);
+
+  await writeIndexHtml(packageName);
 
   s.stop(`Successfully cloned template！🎉`);
 
@@ -87,10 +94,13 @@ export async function resolveOptions(
       placeholder: defaultName,
       defaultValue: defaultName,
       validate(value) {
-        if (value && !/^[a-z0-9-_]+$/.test(value)) {
+        if (
+          value &&
+          !/^(?:@[a-z\d\-*~][a-z\d\-*._~]*\/)?[a-z\d\-~][a-z\d\-._~]*$/.test(
+            String(value),
+          )
+        ) {
           return 'Invalid project name';
-        } else {
-          return '';
         }
       },
     });
@@ -125,19 +135,19 @@ export async function resolveOptions(
 }
 
 /**
- * Download the template from the template directory
- * @param template The template file name
- * @param targetDir The target directory
+ * Copy the template
+ * @param template The template name
+ * @param packageName The package name
  */
-export async function downloadTemplate(
+export async function copyTemplate(
   template: string,
-  targetDir: string,
+  packageName: string,
 ): Promise<void> {
   const sourcePath = path.join(root, 'templates', template);
-  const targetPath = path.join(cwd, targetDir);
+  const targetPath = path.join(cwd, packageName);
 
   if (fs.existsSync(targetPath)) {
-    cancel(`The folder ${targetDir} already exists.`);
+    cancel(`The folder ${packageName} already exists.`);
     process.exit(1);
   }
 
@@ -146,14 +156,31 @@ export async function downloadTemplate(
 
 /**
  * Write the package.json file
- * @param targetDir The target directory
+ * @param packageName The package name
  */
-export async function writePackageJson(targetDir: string): Promise<void> {
-  const pkgPath = path.join(cwd, targetDir, 'package.json');
+export async function writePackageJson(packageName: string): Promise<void> {
+  const pkgPath = path.join(cwd, packageName, 'package.json');
 
   const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
 
-  pkg.name = targetDir;
+  pkg.name = packageName;
 
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
+}
+
+/**
+ * Write the index.html file
+ * @param packageName The package name
+ */
+export async function writeIndexHtml(packageName: string): Promise<void> {
+  const htmlPath = path.join(cwd, packageName, 'index.html');
+
+  const index = fs.readFileSync(htmlPath, 'utf-8');
+
+  const newIndex = index.replace(
+    /<title>.*?<\/title>/,
+    `<title>${packageName}</title>`,
+  );
+
+  fs.writeFileSync(htmlPath, newIndex);
 }
