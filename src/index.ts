@@ -67,6 +67,8 @@ export async function create(
 
   await writeIndexHtml(packageName);
 
+  await renameGitignore(packageName);
+
   s.stop(`Successfully cloned template！🎉`);
 
   outro(pc.green(`Done！🤖`));
@@ -183,4 +185,17 @@ export async function writeIndexHtml(packageName: string): Promise<void> {
   );
 
   fs.writeFileSync(htmlPath, newIndex);
+}
+
+/**
+ * Rename the _gitignore file to .gitignore
+ * @param packageName The package name
+ */
+export async function renameGitignore(packageName: string): Promise<void> {
+  const gitignorePath = path.join(cwd, packageName, '_gitignore');
+  const newGitignorePath = path.join(cwd, packageName, '.gitignore');
+
+  if (fs.existsSync(gitignorePath)) {
+    fs.renameSync(gitignorePath, newGitignorePath);
+  }
 }
