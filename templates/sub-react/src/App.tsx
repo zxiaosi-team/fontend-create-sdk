@@ -43,8 +43,7 @@ function App() {
 
   return (
     <ConfigProvider {...antdConfig}>
-      {/* <Suspense fallback={sdk.ui.renderComponent('Loading')}> */}
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={sdk.ui.renderComponent('Loading')}>
         <RouterProvider
           router={createBrowserRouter(routes, { basename: '/subapp1' })}
           future={{ v7_startTransition: false }}

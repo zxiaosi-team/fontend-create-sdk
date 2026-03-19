@@ -13,8 +13,7 @@ const WithAuth = () => {
   if (isAuth) {
     return <Outlet />;
   } else {
-    // return sdk.ui.renderComponent('NoPermission');
-    return <>无权限</>;
+    return sdk.ui.renderComponent('NoPermission');
   }
 };
 
