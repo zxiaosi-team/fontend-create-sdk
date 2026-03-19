@@ -33,6 +33,7 @@
     "oxlint": "^1.55.0",
     "typescript": "~5.9.3",
     "vite": "^8.0.0",
+    "vite-plugin-externals": "^0.6.2",
     "vite-plugin-mock": "^2.9.8"
   },
   "lint-staged": {

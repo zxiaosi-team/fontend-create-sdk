@@ -1,4 +1,3 @@
-import * as Icons from '@ant-design/icons';
 import {
   sdk,
   SdkApiPlugin,
@@ -10,25 +9,16 @@ import {
   SdkStorePlugin,
   SdkUIPlugin,
 } from '@zxiaosi/sdk';
-import { createElement, lazy } from 'react';
+import { lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import './index.css';
 import CustomActions from '@/components/customActions/index.tsx';
+import dynamicIcon from '@/components/dynamicIcon/index.tsx';
 import I18nConfig from '@/i18n/index';
 import { getRoutesApi, getUserInfoApi, loginApi } from '@/service/index.ts';
 
 import App from './App.tsx';
-
-/**
- * 动态创建Icon
- * @param icon icon名称
- */
-const dynamicIcon = (icon: string) => {
-  const antIcon: { [key: string]: any } = Icons; // 防止类型报错
-  if (!antIcon[icon]) return icon;
-  return createElement(antIcon[icon]);
-};
 
 const Home = lazy(() => import('@/pages/Home.tsx'));
 const NotFound = lazy(() => import('@/pages/NotFound.tsx'));
