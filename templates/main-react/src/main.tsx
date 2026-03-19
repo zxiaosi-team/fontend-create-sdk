@@ -20,8 +20,8 @@ import { getRoutesApi, getUserInfoApi, loginApi } from '@/service/index.ts';
 
 import App from './App.tsx';
 
-const Home = lazy(() => import('@/pages/Home.tsx'));
-const NotFound = lazy(() => import('@/pages/NotFound.tsx'));
+const Home = lazy(() => import('@/pages/home'));
+const NotFound = lazy(() => import('@/pages/notFound'));
 
 /** 挂载 SDK */
 sdk

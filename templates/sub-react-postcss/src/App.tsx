@@ -10,8 +10,8 @@ import {
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
-const Home = lazy(() => import('@/pages/Home'));
-const Detail = lazy(() => import('@/pages/Detail'));
+const Detail = lazy(() => import('@/pages/detail'));
+const Fullscreen = lazy(() => import('@/pages/fullscreen'));
 const Layout = lazy(() => import('@/pages/Layout'));
 
 const routes: RouteObject[] = [
@@ -20,12 +20,12 @@ const routes: RouteObject[] = [
     element: <Layout />,
     children: [
       {
-        path: '/',
-        element: <Home />,
-      },
-      {
         path: '/detail',
         element: <Detail />,
+      },
+      {
+        path: '/fullscreen',
+        element: <Fullscreen />,
       },
     ],
   },
@@ -45,7 +45,7 @@ function App() {
     <ConfigProvider {...antdConfig}>
       <Suspense fallback={sdk.ui.renderComponent('Loading')}>
         <RouterProvider
-          router={createBrowserRouter(routes, { basename: '/subapp1' })}
+          router={createBrowserRouter(routes, { basename: '/subapp2' })}
           future={{ v7_startTransition: false }}
         />
       </Suspense>

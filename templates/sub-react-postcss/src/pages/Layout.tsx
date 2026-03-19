@@ -7,6 +7,7 @@ const WithAuth = () => {
 
   const isAuth = useMemo(() => {
     const pathname = sdk.client.location.pathname;
+    console.log('location', location.pathname, pathname);
     return sdk.app.permissions.includes(pathname);
   }, [location]);
 

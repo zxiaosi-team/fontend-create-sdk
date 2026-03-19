@@ -10,8 +10,8 @@ import {
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
-const Home = lazy(() => import('@/pages/Home'));
-const Detail = lazy(() => import('@/pages/Detail'));
+const Home = lazy(() => import('@/pages/home'));
+const Detail = lazy(() => import('@/pages/detail'));
 const Layout = lazy(() => import('@/pages/Layout'));
 
 const routes: RouteObject[] = [
