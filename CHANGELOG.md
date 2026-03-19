@@ -1,5 +1,19 @@
 <!-- 先配置 `cliff.toml`, 然后运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
+## [0.1.4](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.1.3...v0.1.4) - (2026-03-19)
+
+### ⚙️ 杂项任务
+
+- 删除 sub-react-tailwindcss 的 package.json 文件
+
+### 🚀 新功能
+
+- 添加 git-cliff 配置文件以生成变更日志
+- 优化 MainApp（React）模板
+- 优化 sub-react 模板，添加外部依赖配置
+- 添加 sub-react-postcss 模板
+- 完善 main-react、sub-react、sub-react-postcss 模板
+
 ## [0.1.3](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.1.2...v0.1.3) - (2026-03-18)
 
 ### ⚙️ 杂项任务
