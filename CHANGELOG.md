@@ -1,5 +1,27 @@
 <!-- 先配置 `cliff.toml`, 然后运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
+## [0.2.0](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.1.4...v0.2.0) - (2026-03-22)
+
+### ⚙️ 配置变更
+
+- 更新 Node 版本要求和构建目标
+
+### 📚 文档更新
+
+- 添加 Node 版本兼容性说明
+
+### 📦 依赖更新
+
+- 更新依赖 tsdown@v0.21.4
+
+### 📦 构建系统
+
+- *(templates)* 更新依赖及Node版本支持
+
+### 🚜 代码重构
+
+- 更新默认包名并移除Vue子应用模板
+
 ## [0.1.4](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.1.3...v0.1.4) - (2026-03-19)
 
 ### ⚙️ 杂项任务
