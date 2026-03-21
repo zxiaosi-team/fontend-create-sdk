@@ -1,6 +1,9 @@
 ## @zxiaosi/create-sdk
 
-A tool for generating SDK projects
+A tool for generating @zxiaosi/sdk projects
+
+> **Compatibility Note:**
+> Vite requires [Node.js](https://nodejs.org/en/) version 20.19+, 22.12+. However, some templates require a higher Node.js version to work, please upgrade if your package manager warns about it.
 
 ## Usage
 
