@@ -19,7 +19,7 @@ const cwd = process.cwd();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.dirname(__dirname);
 
-export const defaultName = 'my-package';
+export const defaultName = 'micro-app';
 
 export const templateOptions = [
   { value: 'main-react', label: 'MainApp（React）' },
@@ -29,7 +29,6 @@ export const templateOptions = [
     label: 'SubApp (React + PostCSS)',
     hint: 'Qinkun style Isolation',
   },
-  { value: 'sub-vue', label: 'SubApp (Vue)' },
 ] as const;
 
 type TemplateOption = (typeof templateOptions)[number]['value'];
