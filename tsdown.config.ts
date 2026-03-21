@@ -4,6 +4,6 @@ export default defineConfig({
   entry: 'src/cli.ts',
   minify: true,
   platform: 'node',
-  target: 'node16',
+  target: 'node20',
   fixedExtension: false,
 });
