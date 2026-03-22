@@ -1,6 +1,6 @@
 {
   "name": "@zxiaosi/create-sdk",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "description": "A tool for generating @zxiaosi/sdk projects",
   "keywords": [
     "micro frontend",

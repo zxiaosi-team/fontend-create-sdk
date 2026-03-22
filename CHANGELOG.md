@@ -1,6 +1,12 @@
 <!-- 先配置 `cliff.toml`, 然后运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
-## [0.2.0](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.1.4...v0.2.0) - (2026-03-22)
+## [0.4.0](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.2.0...v0.4.0) - (2026-03-23)
+
+### 🚀 新功能
+
+- *(templates)* 模板中添加自定义面包屑和权限组件
+
+## [0.2.0](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.1.4...v0.2.0) - (2026-03-21)
 
 ### ⚙️ 配置变更
 
