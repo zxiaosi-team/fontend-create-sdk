@@ -11,7 +11,6 @@ const useInfo = {
     '/subapp1/detail',
     '/subapp2/detail',
     '/subapp2/fullscreen',
-    '/403',
   ],
   roles: ['admin'],
   system: {

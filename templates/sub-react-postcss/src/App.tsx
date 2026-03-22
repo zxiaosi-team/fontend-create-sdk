@@ -10,14 +10,15 @@ import {
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
+import CustomWithAuth from '@/components/customWithAuth';
+
 const Detail = lazy(() => import('@/pages/detail'));
 const Fullscreen = lazy(() => import('@/pages/fullscreen'));
-const Layout = lazy(() => import('@/pages/Layout'));
 
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Layout />,
+    element: <CustomWithAuth />,
     children: [
       {
         path: '/detail',

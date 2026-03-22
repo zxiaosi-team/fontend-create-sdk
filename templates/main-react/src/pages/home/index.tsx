@@ -1,9 +1,10 @@
 import { sdk } from '@zxiaosi/sdk';
-import { Alert, Breadcrumb, Button, Card, DatePicker, Space } from 'antd';
+import { Alert, Button, Card, DatePicker, Space } from 'antd';
 import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
 import './index.css';
+import CustomCrumb from '@/components/customCrumb';
 
 /** 首页 */
 const Home = () => {
@@ -35,7 +36,7 @@ const Home = () => {
   return (
     <div className='home'>
       <Space direction='vertical' style={{ display: 'flex' }}>
-        <Breadcrumb items={[{ title: sdk.i18n.intl.get('menu.home') }]} />
+        <CustomCrumb />
 
         <Card title='CSS 变量、Token 变量'>
           <Space wrap>

@@ -14,6 +14,8 @@ import { createRoot } from 'react-dom/client';
 
 import './index.css';
 import CustomActions from '@/components/customActions/index.tsx';
+import CustomCrumb from '@/components/customCrumb/index.tsx';
+import CustomWithAuth from '@/components/customWithAuth/index.tsx';
 import dynamicIcon from '@/components/dynamicIcon/index.tsx';
 import I18nConfig from '@/i18n/index';
 import { getRoutesApi, getUserInfoApi, loginApi } from '@/service/index.ts';
@@ -48,7 +50,7 @@ sdk
   .use(SdkI18nPlugin, I18nConfig)
   .use(SdkStoragePlugin)
   .use(SdkStorePlugin)
-  .use(SdkUIPlugin, { Home, NotFound })
+  .use(SdkUIPlugin, { Home, NotFound, CustomCrumb, CustomWithAuth })
   .mount('sdk');
 
 /** 渲染主应用 */
