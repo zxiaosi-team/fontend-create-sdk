@@ -11,7 +11,7 @@
     "prepare": "husky && echo npx lint-staged > .husky/pre-commit"
   },
   "dependencies": {
-    "@zxiaosi/sdk": "^0.4.0",
+    "@zxiaosi/sdk": "^0.5.2",
     "antd": "^5.29.3",
     "es-toolkit": "^1.45.1",
     "react": "^18.3.1",
