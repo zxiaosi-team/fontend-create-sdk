@@ -1,6 +1,13 @@
 <!-- 先配置 `cliff.toml`, 然后运行 `npx git-cliff@latest -o CHANGELOG.md` -->
 
-## [0.4.0](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.2.0...v0.4.0) - (2026-03-23)
+## [0.5.0](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.4.0...v0.5.0) - (2026-03-26)
+
+### 🚜 代码重构
+
+- *(templates)* 移除 react-router-dom 依赖及相关配置 & 更新依赖 @zxiaosi/sdk@0.5.2
+- *(react)* 移除 react-router-dom 依赖及相关配置 & 更新依赖 @zxiaosi/sdk@0.5.2
+
+## [0.4.0](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.2.0...v0.4.0) - (2026-03-22)
 
 ### 🚀 新功能
 
