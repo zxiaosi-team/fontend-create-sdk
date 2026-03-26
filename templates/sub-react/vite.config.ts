@@ -16,6 +16,7 @@ export default ({ mode }: ConfigEnv) => {
       origin: '*', // 允许跨域
     },
     plugins: [
+      // react compiler: https://npmx.dev/package/@vitejs/plugin-react#user-content-react-compiler
       react(),
       qiankun({ name: name, sandbox: !!process.env.VITE_SANDBOX }),
       // 配合主应用 index.html 中的预加载资源使用
@@ -26,9 +27,6 @@ export default ({ mode }: ConfigEnv) => {
         // 或者 浏览器安装 React Developer Tools 插件
         'react-dom': 'ReactDOM',
         'react-dom/client': 'ReactDOM',
-
-        // 排除 react-router-dom 依赖, 需要先引入 @remix-run/router、react-router
-        'react-router-dom': 'ReactRouterDOM',
       }),
     ],
   });

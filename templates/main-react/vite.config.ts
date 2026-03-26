@@ -16,7 +16,9 @@ export default ({ mode }: ConfigEnv) => {
       tsconfigPaths: true,
     },
     plugins: [
-      react(), // https://blog.csdn.net/XH_jing/article/details/150554654
+      // react compiler: https://npmx.dev/package/@vitejs/plugin-react#user-content-react-compiler
+      react(), 
+      // https://blog.csdn.net/XH_jing/article/details/150554654
       viteMockServe({
         mockPath: 'mock',
         localEnabled: true,
@@ -36,9 +38,6 @@ export default ({ mode }: ConfigEnv) => {
         // 或者 浏览器安装 React Developer Tools 插件
         'react-dom': 'ReactDOM',
         'react-dom/client': 'ReactDOM',
-
-        // 排除 react-router-dom 依赖, 需要先引入 @remix-run/router、react-router
-        'react-router-dom': 'ReactRouterDOM',
       }),
     ],
   });
