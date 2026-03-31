@@ -1,4 +1,23 @@
-<!-- 先配置 `cliff.toml`, 然后运行 `npx git-cliff@latest -o CHANGELOG.md` -->
+<!-- 快捷命令： npm run changelog -- --tag xxx -->
+
+## [0.5.1](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.5.0...v0.5.1) - (2026-03-31)
+
+### ⚙️ 杂项任务
+
+- 调整 cliff.toml 文件配置
+
+### ⚙️ 配置变更
+
+- 添加快捷生成 CHANGELOG.md 命令
+
+### 📚 文档更新
+
+- 添加热更新问题提示
+
+### 🚀 新功能
+
+- *(templates)* 添加react-router-dom和sdk依赖外部化配置
+- *(templates)* Main-app 模板中添加 react-router、react-router-dom、router 依赖
 
 ## [0.5.0](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.4.0...v0.5.0) - (2026-03-26)
 
