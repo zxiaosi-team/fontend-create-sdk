@@ -27,7 +27,8 @@
   },
   "scripts": {
     "dev": "tsdown --watch",
-    "build": "tsdown"
+    "build": "tsdown",
+    "changelog": "npx git-cliff -o CHANGELOG.md"
   },
   "devDependencies": {
     "@clack/prompts": "^1.1.0",
