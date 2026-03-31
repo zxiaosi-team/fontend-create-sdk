@@ -4,5 +4,5 @@
   "singleQuote": true,
   "jsxSingleQuote": true,
   "sortImports": {},
-  "ignorePatterns": ["**/node_modules/**"]
+  "ignorePatterns": ["**/node_modules/**", "**/public/**"]
 }
