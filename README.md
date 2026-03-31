@@ -13,6 +13,10 @@ npm install -g @zxiaosi/create-sdk
 npx create-sdk
 ```
 
+## Tips
+
+- All templates exclude `react-dom`, which will cause `HMR` to fail. Please install [React Developer Tools](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil).
+
 ## Reference
 
 - [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite)
