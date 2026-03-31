@@ -8,7 +8,7 @@
 [changelog]
 # 变更日志的标题模板
 header = """
-<!-- 先配置 `cliff.toml`, 然后运行 `npx git-cliff@latest -o CHANGELOG.md` -->\n
+<!-- 快捷命令： npm run changelog -- --tag xxx -->\n
 """
 
 # 变更日志的内容模板
