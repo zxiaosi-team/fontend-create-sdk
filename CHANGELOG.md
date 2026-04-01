@@ -1,5 +1,11 @@
 <!-- 快捷命令： npm run changelog -- --tag xxx -->
 
+## [0.5.2](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.5.1...v0.5.2) - (2026-04-01)
+
+### 🐛 Bug 修复
+
+- *(templates)* 修复 子应用 使用主应用共享组件时，样式丢失问题
+
 ## [0.5.1](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.5.0...v0.5.1) - (2026-03-31)
 
 ### ⚙️ 杂项任务
