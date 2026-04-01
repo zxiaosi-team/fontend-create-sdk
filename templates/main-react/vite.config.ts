@@ -40,6 +40,7 @@ export default ({ mode }: ConfigEnv) => {
         'react-dom/client': 'ReactDOM',
 
         // 排除 react-router-dom 依赖, 需要先引入 @remix-run/router、react-router
+        // 不排除 react-router-dom，会导致 CustomWithAuth 组件不可用
         'react-router-dom': 'ReactRouterDOM',
       }),
     ],

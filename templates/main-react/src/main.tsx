@@ -14,11 +14,11 @@ import { createRoot } from 'react-dom/client';
 
 import './index.css';
 import CustomActions from '@/components/customActions/index.tsx';
-import CustomCrumb from '@/components/customCrumb/index.tsx';
-import CustomWithAuth from '@/components/customWithAuth/index.tsx';
 import dynamicIcon from '@/components/dynamicIcon/index.tsx';
 import I18nConfig from '@/i18n/index';
 import { getRoutesApi, getUserInfoApi, loginApi } from '@/service/index.ts';
+import CustomCrumb from '@/shared/customCrumb/index.tsx';
+import CustomWithAuth from '@/shared/customWithAuth/index.tsx';
 
 import App from './App.tsx';
 

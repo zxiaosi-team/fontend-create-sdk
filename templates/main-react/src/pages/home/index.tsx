@@ -4,7 +4,7 @@ import { useStore } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
 import './index.css';
-import CustomCrumb from '@/components/customCrumb';
+import CustomCrumb from '@/shared/customCrumb';
 
 /** 首页 */
 const Home = () => {
