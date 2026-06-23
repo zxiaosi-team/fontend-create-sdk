@@ -22,12 +22,6 @@ jobs:
       # Step2: 安装pnpm环境
       - name: Install pnpm
         uses: pnpm/action-setup@v6
-        with:
-          # 这里可以设置pnpm的版本，但前提是不要用pnpm配置文件或package.packageManager指定版本，否则会报错
-          # https://github.com/pnpm/action-setup/tree/master?tab=readme-ov-file#install-only-pnpm-without-packagemanager
-          # 我在package指定了，所以不在此处指定
-          version: 8
-          run_install: false
 
       # Step3: 安装Nodejs环境并打包
       - name: Setup nodejs and build package
