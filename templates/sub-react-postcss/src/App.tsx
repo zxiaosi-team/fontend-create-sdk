@@ -1,56 +1,26 @@
-import { sdk } from '@zxiaosi/sdk';
-import { ConfigProvider } from 'antd';
-import { cloneDeep } from 'es-toolkit';
-import { lazy, Suspense, useMemo } from 'react';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  type RouteObject,
-} from 'react-router-dom';
-import { useStore } from 'zustand';
-import { useShallow } from 'zustand/shallow';
+import { useState } from 'react';
 
-import CustomWithAuth from '@/components/customWithAuth';
+import { name } from '../package.json';
 
-const Detail = lazy(() => import('@/pages/detail'));
-const Fullscreen = lazy(() => import('@/pages/fullscreen'));
-
-const routes: RouteObject[] = [
-  {
-    path: '/',
-    element: <CustomWithAuth />,
-    children: [
-      {
-        path: '/detail',
-        element: <Detail />,
-      },
-      {
-        path: '/fullscreen',
-        element: <Fullscreen />,
-      },
-    ],
-  },
-];
+import './App.css';
 
 function App() {
-  const [locale, theme] = useStore(
-    sdk.store,
-    useShallow((state) => [state.locale, state.theme]),
-  );
-
-  const antdConfig = useMemo(() => {
-    return cloneDeep(sdk.config.antdConfig);
-  }, [locale, theme]);
+  const [count, setCount] = useState(0);
 
   return (
-    <ConfigProvider {...antdConfig}>
-      <Suspense fallback={sdk.ui.renderComponent('Loading')}>
-        <RouterProvider
-          router={createBrowserRouter(routes, { basename: '/subapp2' })}
-          future={{ v7_startTransition: false }}
-        />
-      </Suspense>
-    </ConfigProvider>
+    <>
+      <h2>{name}</h2>
+
+      <button
+        type='button'
+        className='counter'
+        onClick={() => setCount((count) => count + 1)}
+      >
+        Count is {count}
+      </button>
+
+      <div className='global-style'>样式隔离</div>
+    </>
   );
 }
 

@@ -4,8 +4,6 @@ import { createRoot, type Root } from 'react-dom/client';
 import { name } from '../package.json';
 import App from './App.tsx';
 
-import './index.css';
-
 let root: Root;
 const render = (props: any = {}) => {
   const container = props?.container
