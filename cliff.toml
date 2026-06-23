@@ -85,7 +85,7 @@ commit_parsers = [
   { message = "^deps", group = "📦 依赖更新" },
   { message = "^init", group = "🎉 初始化" },
   { message = "^config", group = "⚙️ 配置变更" },
-  { message = "^release", group = "🏷️ 版本发布", skip = true  },
+  { message = "^release", group = "🏷️ 版本发布", skip = true },
   { message = "^hotfix", group = "🔥 紧急修复" },
   { message = "^breaking", group = "💥 破坏性变更" },
   { message = ".*", group = "💼 其他" },
