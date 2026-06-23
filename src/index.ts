@@ -71,12 +71,6 @@ export async function create(
   s.stop(`Successfully cloned template！🎉`);
 
   outro(pc.green(`Done！🤖`));
-
-  console.log(
-    `Please configure the port in ${pc.blue(`{MainApp}/mock/getRoutes.ts`)} 🧐 \n` +
-      `Please configure permissions in ${pc.blue(`{MainApp}/mock/getUserInfo.ts`)} 🤔 \n` +
-      `For more information, visit: ${pc.underline(`https://zxiaosi.com/archives/c6c40209.html`)} 👀`,
-  );
 }
 
 /**
