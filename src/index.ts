@@ -7,7 +7,6 @@ import {
   cancel,
   intro,
   isCancel,
-  log,
   outro,
   select,
   spinner,
@@ -22,7 +21,8 @@ const root = path.dirname(__dirname);
 export const defaultName = 'micro-app';
 
 export const templateOptions = [
-  { value: 'main-react', label: 'MainApp（React）' },
+  { value: 'main-react18', label: 'MainApp（React18）' },
+  { value: 'main-react19', label: 'MainApp（React19）' },
   { value: 'sub-react', label: 'SubApp (React)' },
   {
     value: 'sub-react-postcss',
@@ -71,6 +71,9 @@ export async function create(
   s.stop(`Successfully cloned template！🎉`);
 
   outro(pc.green(`Done！🤖`));
+
+
+  console.log(`${pc.blue(`The subapp's react and react-dom dependencies should stay consistent with the mainapp！`)} 👀`);
 }
 
 /**
@@ -117,7 +120,7 @@ export async function resolveOptions(
     template = await select({
       message: 'Which template do you want to use?',
       options: [...templateOptions],
-      initialValue: 'main-react',
+      initialValue: 'main-react18',
     });
 
     if (isCancel(template)) {
