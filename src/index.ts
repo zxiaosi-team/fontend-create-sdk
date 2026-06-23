@@ -72,8 +72,9 @@ export async function create(
 
   outro(pc.green(`Done！🤖`));
 
-
-  console.log(`${pc.blue(`The subapp's react and react-dom dependencies should stay consistent with the mainapp！`)} 👀`);
+  console.log(
+    `${pc.blue(`The subapp's react and react-dom dependencies should stay consistent with the mainapp！`)} 👀`,
+  );
 }
 
 /**
