@@ -1,5 +1,32 @@
 <!-- 快捷命令： npm run changelog -- --tag xxx -->
 
+## [1.0.0](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.5.2...v1.0.0) - (2026-06-23)
+
+### ⚙️ 杂项任务
+
+- *(ci)* 更新依赖项，支持node24
+- *(ci)* 移除 pnpm 安装步骤中的版本和运行配置
+
+### ⚙️ 配置变更
+
+- 添加 pnpm 作为包管理器
+
+### 🐛 Bug 修复
+
+- 格式化文件
+- 移除创建项目时的配置提示信息
+- *(template)* 调整模板依赖
+- *(template)* 调整模板依赖
+
+### 📦 依赖更新
+
+- 更新依赖 @clack/prompts@1.6.0、tsdown@0.22.3
+
+### 🚀 新功能
+
+- *(templates)* 添加新模板
+- 添加 react19 模板
+
 ## [0.5.2](https://github.com/zxiaosi-team/fontend-create-sdk/compare/v0.5.1...v0.5.2) - (2026-04-01)
 
 ### 🐛 Bug 修复
