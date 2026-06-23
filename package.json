@@ -31,10 +31,10 @@
     "changelog": "npx git-cliff -o CHANGELOG.md"
   },
   "devDependencies": {
-    "@clack/prompts": "^1.1.0",
+    "@clack/prompts": "^1.6.0",
     "cac": "^7.0.0",
     "picocolors": "^1.1.1",
-    "tsdown": "^0.21.4"
+    "tsdown": "^0.22.3"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
